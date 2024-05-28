@@ -1,0 +1,203 @@
+/* #region GENERAL STYLES */
+:root {
+    --blue: rgb(8, 96, 211);
+    --textColor: rgb(27, 27, 27);
+    --textColorDark: rgb(231, 231, 231);
+    --mainBgColor: rgb(231, 231, 231);
+    --mainBgColorDark: rgb(27, 27, 27);
+
+    --darkPink: #d6d6d6;
+}
+
+/* #region AUTO SWITCH BETWWEEN DARK AND LIGHT MODE based on browser setting*/
+@media (prefers-color-scheme: dark) {
+    #emailBody {
+        background-color: var(--mainBgColorDark);
+        color: var(--textColorDark);
+    }
+}
+@media (prefers-color-scheme: light) {
+    #emailBody {
+        background-color: var(--mainBgColor);
+        color: var(--textColor);}
+}
+/* #endregion  AUTO SWITCH END*/
+
+.hidden {
+    display: none;
+}
+
+.textSizeL,
+h1 {
+    font-size: 30px;
+    line-height: 35px;
+}
+
+.textSize2,
+h2 {
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.textSize3,
+h3 {
+    font-size: 14px;
+}
+
+.textSizeS,
+h4 {
+    font-size: 12px;
+}
+
+#emailBody {
+    border-collapse: collapse;
+}
+
+#emailBody tr>td>table {}
+
+.linkButton1 {
+    background-color: var(--blue);
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    line-height: 40px;
+    width: 40%;
+}
+
+.twoCellGrid {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.twoCellGrid>.posterTableLinked {
+    width: 250px;
+}
+
+.posterTableLinked {
+    text-decoration: none;
+}
+
+.sectionMargin {
+    padding-top: 40px;
+    display: block;
+}
+.sectionSmallMargin {
+    padding-top: 10px;
+    display: block;
+}
+
+@media only screen and (max-width: 480px) {
+    .linkButton1 {
+        width: 100%;
+        line-height: 60px;
+        border-radius: 30px;
+    }
+
+    .twoCellGrid {
+        flex-direction: column;
+    }
+
+    .twoCellGrid>.posterTableLinked {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+
+.footerTable tr{
+    display: grid;
+}
+
+/* #endregion GENERAL STYLES END */
+
+/* #region HEADER */
+#header {
+    line-height: 1;
+}
+
+#header>td {
+    padding: 0 10px;
+}
+
+#header>td:first-child {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#header img[alt="logo"] {
+    object-fit: contain;
+    max-width: 200px;
+}
+
+#header>td:nth-child(2) {
+    text-align: right;
+}
+
+/* #endregion HEADER END*/
+
+/* #region POSTER TABLE */
+.posterTable tr:not(.poster, .titlePoster)>td {
+    padding: 0 30px;
+}
+
+.posterTable .poster img {
+    padding-bottom: 20px;
+}
+
+.posterTable .mp1Description p {
+    text-align: justify;
+    text-align-last: center;
+}
+
+.posterTable .title {
+    font-weight: 900;
+}
+
+.posterTable .mp1LinkButtons td {
+    display: flex;
+    justify-content: center;
+}
+
+/* #endregion */
+
+/* #region posterTableLinked*/
+.posterTableLinked {
+    margin: 0;
+    color: inherit; /* so the text color switches with dark/light mode */
+}
+
+.posterTableLinked .poster {
+    padding-bottom: 5px;
+}
+
+/* #endregion posterTableLinked END*/
+
+/* #region titlePoster */
+.horizontalPoster .description{
+    text-align: justify;
+    text-align-last: center;
+    padding: 0 10px;
+}
+@media only screen and (max-width: 480px) {
+    /* .horizontalPoster td{
+        display: block;
+    } */
+}
+/* #region titlePoster END*/
+
+/* #region STRUCTURE STYLE > REMOVE THIS*/
+#emailBody>tr>td>table {
+    background-color: aqua;
+}
+
+/* #endregion STRUCTURE STYLE END > REMOVE THIS */

@@ -1,0 +1,810 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark"> -->
+    <title>eMail Template #1</title>
+    <style type="text/css">
+        /* Client-specific Styles */
+        #outlook a {
+            padding: 0;
+        }
+
+        /* Force Outlook to provide a "view in browser" menu link. */
+        body {
+            width: 100% !important;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            margin: 0;
+            padding: 0;
+            height: 100% !important;
+            font-family: sans-serif;
+            text-rendering: geometricPrecision;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+        #bgTable {
+            line-height: 100% !important;
+        }
+
+        #bgTable,
+        #bgTableBodyCell {
+            height: 100% !important;
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+            background-color: rgb(255, 61, 61);
+        }
+
+        /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+        .ExternalClass {
+            width: 100%;
+        }
+
+        /* Force Hotmail to display emails at full width */
+        .ExternalClass,
+        .ExternalClass p,
+        .ExternalClass span,
+        .ExternalClass font,
+        .ExternalClass td,
+        .ExternalClass div {
+            line-height: 100%;
+        }
+
+
+        /* End reset */
+        /* Some sensible defaults for images
+		1. "-ms-interpolation-mode: bicubic" works to help ie properly resize images in IE. (if you are resizing them using the width and height attributes)
+		2. "border:none" removes border when linking images.
+		3. Updated the common Gmail/Hotmail image display fix: Gmail and Hotmail unwantedly adds in an extra space below images when using non IE browsers. You may not always want all of your images to be block elements. Apply the "image_fix" class to any image you need to fix.
+		Bring inline: Yes.
+		*/
+        img,
+        a img {
+            border: none;
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        .image_fix {
+            display: block;
+        }
+
+        /** Yahoo paragraph fix: removes the proper spacing or the paragraph (p) tag. To correct we set the top/bottom margin to 1em in the head of the document. Simple fix with little effect on other styling. NOTE: It is also common to use two breaks instead of the paragraph tag but I think this way is cleaner and more semantic. NOTE: This example recommends 1em. More info on setting web defaults: http://www.w3.org/TR/CSS21/sample.html or http://meiert.com/en/blog/20070922/user-agent-style-sheets/
+		Bring inline: Yes.
+		**/
+        p {
+            margin: 1em 0;
+        }
+
+        /** Hotmail header color reset: Hotmail replaces your header color styles with a green color on H2, H3, H4, H5, and H6 tags. In this example, the color is reset to black for a non-linked header, blue for a linked header, red for an active header (limited support), and purple for a visited header (limited support).  Replace with your choice of color. The !important is really what is overriding Hotmail's styling. Hotmail also sets the H1 and H2 tags to the same size.
+		Bring inline: Yes.
+		**/
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: black !important;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 a,
+        h2 a,
+        h3 a,
+        h4 a,
+        h5 a,
+        h6 a {
+            color: blue !important;
+        }
+
+        h1 a:active,
+        h2 a:active,
+        h3 a:active,
+        h4 a:active,
+        h5 a:active,
+        h6 a:active {
+            color: red !important;
+            /* Preferably not the same color as the normal header link color.  There is limited support for psuedo classes in email clients, this was added just for good measure. */
+        }
+
+        h1 a:visited,
+        h2 a:visited,
+        h3 a:visited,
+        h4 a:visited,
+        h5 a:visited,
+        h6 a:visited {
+            color: purple !important;
+            /* Preferably not the same color as the normal header link color. There is limited support for psuedo classes in email clients, this was added just for good measure. */
+        }
+
+        /** Outlook 07, 10 Padding issue: These "newer" versions of Outlook add some padding around table cells potentially throwing off your perfectly pixeled table.  The issue can cause added space and also throw off borders completely.  Use this fix in your header or inline to safely fix your table woes.
+		More info: http://www.ianhoar.com/2008/04/29/outlook-2007-borders-and-1px-padding-on-table-cells/
+		http://www.campaignmonitor.com/blog/post/3392/1px-borders-padding-on-table-cells-in-outlook-07/
+		H/T @edmelly
+		Bring inline: No.
+		**/
+        table tr,
+        table td {
+            border-collapse: collapse;
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        /* Removes the gap left by <img> tag in <td> tag */
+        td>img {
+            vertical-align: bottom;
+        }
+
+        /** Remove spacing around Outlook 07, 10 tables
+		More info : http://www.campaignmonitor.com/blog/post/3694/removing-spacing-from-around-tables-in-outlook-2007-and-2010/
+		Bring inline: Yes
+		**/
+        table {
+            table-layout: fixed;
+            /*For faster rendering due to fixed width*/
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+            padding: 0;
+            border: none;
+        }
+
+        /* Styling your links has become much simpler with the new Yahoo.  In fact, it falls in line with the main credo of styling in email, bring your styles inline.  Your link colors will be uniform across clients when brought inline.
+		Bring inline: Yes. */
+        a {
+            color: orange;
+        }
+
+
+
+        /*////// CLIENT-SPECIFIC STYLES //////*/
+        .ReadMsgBody {
+            width: 100%;
+        }
+
+        .ExternalClass {
+            width: 100%;
+        }
+
+        /* Force Hotmail/Outlook.com to display emails at full width. */
+        .ExternalClass,
+        .ExternalClass p,
+        .ExternalClass span,
+        .ExternalClass font,
+        .ExternalClass td,
+        .ExternalClass div {
+            line-height: 100%;
+        }
+
+        /* Force Hotmail/Outlook.com to display line heights normally. */
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        /* Remove spacing between tables in Outlook 2007 and up. */
+        #outlook a {
+            padding: 0;
+        }
+
+        /* Force Outlook 2007 and up to provide a "view in browser" message. */
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /* Force IE to smoothly render resized images. */
+        body,
+        table,
+        td,
+        p,
+        a,
+        li,
+        blockquote {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* Prevent Windows- and Webkit-based mobile platforms from changing declared text sizes. */
+        /*////// CLIENT-SPECIFIC STYLES END //////*/
+
+
+
+
+
+
+        /* Or to go the gold star route...
+		a:link { color: orange; }
+		a:visited { color: blue; }
+		a:hover { color: green; }
+		*/
+        /***************************************************
+		****************************************************
+		MOBILE TARGETING
+		Use @media queries with care.  You should not bring these styles inline -- so it's recommended to apply them AFTER you bring the other stlying inline.
+		Note: test carefully with Yahoo.
+		Note 2: Don't bring anything below this line inline.
+		****************************************************
+		***************************************************/
+        /* NOTE: To properly use @media queries and play nice with yahoo mail, use attribute selectors in place of class, id declarations.
+		table[class=classname]
+		Read more: http://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/
+		*/
+
+
+        /*////// FRAMEWORK STYLES //////*/
+        .flexibleImage {
+            height: auto;
+            width: 100%;
+        }
+
+
+        /*////// MOBILE STYLES //////*/
+        @media only screen and (max-width: 480px) {
+
+
+
+            /*////// CLIENT-SPECIFIC STYLES //////*/
+            body {
+                width: 100% !important;
+                min-width: 100% !important;
+            }
+
+            /* Force iOS Mail to render the email at full width. */
+            /*////// FRAMEWORK STYLES //////*/
+            /*
+				CSS selectors are written in attribute
+				selector format to prevent Yahoo Mail
+				from rendering media query styles on
+				desktop.
+			*/
+            table[id="emailBody"],
+            table.flexibleContainer {
+                width: 100% !important;
+            }
+
+            /*
+				The following style rule makes any
+				image classed with 'flexibleImage'
+				fluid when the query activates.
+				Make sure you add an inline max-width
+				to those images to prevent them
+				from blowing out. 
+			*/
+            img[class="flexibleImage"] {
+                height: auto !important;
+                width: 100% !important;
+            }
+
+            /*
+				Make buttons in the email span the
+				full width of their container, allowing
+				for left- or right-handed ease of use.
+			*/
+            table[class="emailButton"] {
+                width: 100% !important;
+            }
+
+            td[class="buttonContent"] {
+                padding: 0 !important;
+            }
+
+            td[class="buttonContent"] a {
+                padding: 15px !important;
+            }
+
+            td[class="textContentLast"],
+            td[class="imageContentLast"] {
+                padding-top: 20px !important;
+            }
+
+            /*////// GENERAL STYLES //////*/
+            td[id="bodyCell"] {
+                padding-top: 10px !important;
+                padding-Right: 10px !important;
+                padding-Left: 10px !important;
+            }
+        }
+
+        @media only screen and (max-device-width: 480px) {
+
+            /* A nice and clean way to target phone numbers you want clickable and avoid a mobile phone from linking other numbers that look like, but are not phone numbers.  Use these two blocks of code to "unstyle" any numbers that may be linked.  The second block gives you a class to apply with a span tag to the numbers you would like linked and styled.
+			Inspired by Campaign Monitor's article on using phone numbers in email: http://www.campaignmonitor.com/blog/post/3571/using-phone-numbers-in-html-email/.
+			Step 1 (Step 2: line 224)
+			*/
+            a[href^="tel"],
+            a[href^="sms"] {
+                text-decoration: none;
+                color: black;
+                /* or whatever your want */
+                pointer-events: none;
+                cursor: default;
+            }
+
+            .mobile_link a[href^="tel"],
+            .mobile_link a[href^="sms"] {
+                text-decoration: default;
+                color: orange !important;
+                /* or whatever your want */
+                pointer-events: auto;
+                cursor: default;
+            }
+        }
+
+        /* More Specific Targeting */
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+            /* You guessed it, ipad (tablets, smaller screens, etc) */
+            /* Step 1a: Repeating for the iPad */
+            a[href^="tel"],
+            a[href^="sms"] {
+                text-decoration: none;
+                color: blue;
+                /* or whatever your want */
+                pointer-events: none;
+                cursor: default;
+            }
+
+            .mobile_link a[href^="tel"],
+            .mobile_link a[href^="sms"] {
+                text-decoration: default;
+                color: orange !important;
+                pointer-events: auto;
+                cursor: default;
+            }
+        }
+
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+            /* Put your iPhone 4g styles in here */
+        }
+
+        /* Following Android targeting from:
+		http://developer.android.com/guide/webapps/targeting.html
+		http://pugetworks.com/2011/04/css-media-queries-for-targeting-different-mobile-devices/  */
+        @media only screen and (-webkit-device-pixel-ratio:.75) {
+            /* Put CSS for low density (ldpi) Android layouts in here */
+        }
+
+        @media only screen and (-webkit-device-pixel-ratio:1) {
+            /* Put CSS for medium density (mdpi) Android layouts in here */
+        }
+
+        @media only screen and (-webkit-device-pixel-ratio:1.5) {
+            /* Put CSS for high density (hdpi) Android layouts in here */
+        }
+
+        /* end Android targeting */
+    </style>
+
+    <!-- Targeting Windows Mobile -->
+    <!--[if IEMobile 7]>
+	<style type="text/css">
+	</style>
+	<![endif]-->
+
+    <!-- ***********************************************
+	****************************************************
+	END MOBILE TARGETING
+	****************************************************
+	************************************************ -->
+
+    <!--[if gte mso 9]>
+	<style>
+		/* Target Outlook 2007 and 2010 */
+	</style>
+	<![endif]-->
+</head>
+
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <!-- Wrapper/Container Table: to wrap entire code. this will set the background of the email with theme-->
+    <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bgTable">
+        <tr>
+            <td align="center" valign="top" id="bgTableBodyCell">
+                <!-- the table that hold the email in center -->
+                <table border="0" cellpadding="0" cellspacing="0" width="600" id="emailBody" class="textSize2">
+                    <tr>
+                        <td align="center" valign="top">
+                            <!-- ROW TABLE -->
+                            <table border="0" class="flexibleContainer" cellpadding="0" cellspacing="0" width="100%">
+
+                                <!-- HEADER ROW -->
+                                <tr>
+                                    <td valign="top" class="flexibleContainerCell">
+                                        <!-- CONTENT HOLDER TABLE -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                            style="margin: 10px 0;">
+                                            <tr id="header">
+                                                <td>
+                                                    <a class="posterTableLinked">
+                                                        <img src="https://placehold.co/388x78/e02060/white?text=logo+(388x78)"
+                                                            alt="logo" />
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <span class="textSize2">Welcome User. You have 1234 points to
+                                                        spend!</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <!-- CONTENT ROW -->
+                                <tr>
+                                    <td valign="top" class="flexibleContainerCell">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <!-- movie1 -->
+                                            <tr class="sectionMargin">
+                                                <td>
+                                                    <table class="posterTable">
+                                                        <tr class="poster">
+                                                            <td>
+                                                                <img class="flexibleImage"
+                                                                    src="https://placehold.co/600x705/orange/white?text=Movie+1+(600x705)"
+                                                                    alt="Movie Poster">
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="title">
+                                                            <td><span class="textSizeL">
+                                                                    Lorem, ipsum dolor.
+                                                                </span></td>
+                                                        </tr>
+                                                        <tr class="title">
+                                                            <td><span class="textSizeL">
+                                                                    Lorem ipsum dolor sit amet.
+                                                                </span></td>
+                                                        </tr>
+                                                        <tr class="description">
+                                                            <td>
+                                                                <p>
+                                                                    Lorem, ipsum dolor sit amet consectetur adipisicing
+                                                                    elit. Rem libero necessitatibus, enim doloribus
+                                                                    iusto optio, culpa impedit hic labore adipisci
+                                                                    eveniet ea animi, assumenda cupiditate. Ipsa a
+                                                                    quidem corporis nisi cum quod rerum, accusamus
+                                                                    deserunt magnam perspiciatis ullam consectetur
+                                                                    cumque omnis libero nulla amet similique inventore.
+                                                                    Alias natus ratione eligendi!
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="mp1LinkButtons">
+                                                            <td>
+                                                                <a class="linkButton1" href="#">Book Now!</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                            <!-- movie 2 -->
+                                            <tr class="sectionMargin">
+                                                <td>
+                                                    <table class="posterTable">
+                                                        <tr class="titlePoster">
+                                                            <td>
+                                                                <img class="flexibleImage"
+                                                                    src="https://placehold.co/600x100/yellow/black?text=Featured+Title+(600x100)"
+                                                                    alt="Movie Poster">
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="poster">
+                                                            <td>
+                                                                <img class="flexibleImage"
+                                                                    src="https://placehold.co/1059x600/green/white?text=Movie+2+(1059x600)"
+                                                                    alt="Movie Poster">
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="title">
+                                                            <td><span class="textSizeL">
+                                                                    Lorem, ipsum dolor.
+                                                                </span></td>
+                                                        </tr>
+                                                        <tr class="description">
+                                                            <td>
+                                                                <p>
+                                                                    Lorem ipsum dolor sit amet consectetur, adipisicing
+                                                                    elit. Itaque reiciendis aut doloremque tenetur.
+                                                                    Excepturi, quia?
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="mp1LinkButtons">
+                                                            <td>
+                                                                <a class="linkButton1" href="#">
+                                                                    Advance booking here!
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                            <!-- #region now playing -->
+                                            <!-- now playing title -->
+                                            <tr class="sectionMargin">
+                                                <td>
+                                                    <table>
+                                                        <tr class="titlePoster">
+                                                            <td>
+                                                                <img class="flexibleImage"
+                                                                    src="https://placehold.co/600x100/yellow/black?text=Now+Playing+(600x100)"
+                                                                    alt="Movie Poster">
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <!-- now playing row 1 -->
+                                            <tr class="sectionSmallMargin">
+
+                                                <td class="twoCellGrid">
+                                                    <!-- movie 4 -->
+                                                    <a class="posterTableLinked"
+                                                        href="https://stackoverflow.com/questions/6013943/table-tag-inside-anchor-tag"
+                                                        target="_blank">
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td>
+                                                                    <img class="flexibleImage poster"
+                                                                        src="https://placehold.co/223x330/91db3c/082e1f?text=Movie+3+(223x330)"
+                                                                        alt="Movie Poster">
+                                                                </td>
+                                                            </tr>
+                                                        </table>Lorem ipsum
+                                                    </a>
+
+                                                    <!-- movie 5 -->
+                                                    <a class="posterTableLinked"
+                                                        href="https://stackoverflow.com/questions/6013943/table-tag-inside-anchor-tag"
+                                                        target="_blank">
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td>
+                                                                    <img class="flexibleImage poster"
+                                                                        src="https://placehold.co/223x330/dbb63c/643a54?text=Movie+4+(223x330)"
+                                                                        alt="Movie Poster">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        Lorem ipsum
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <!-- now playing row 2 -->
+                                            <tr class="sectionSmallMargin">
+                                                <td class="twoCellGrid">
+                                                    <!-- movie 6 -->
+                                                    <a class="posterTableLinked"
+                                                        href="https://stackoverflow.com/questions/6013943/table-tag-inside-anchor-tag"
+                                                        target="_blank">
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td>
+                                                                    <img class="flexibleImage poster"
+                                                                        src="https://placehold.co/223x330/20e096/082e1f?text=Movie+5+(223x330)"
+                                                                        alt="Movie Poster">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        Lorem ipsum
+                                                    </a>
+
+                                                    <!-- movie 7 -->
+                                                    <a class="posterTableLinked"
+                                                        href="https://stackoverflow.com/questions/6013943/table-tag-inside-anchor-tag"
+                                                        target="_blank">
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td>
+                                                                    <img class="flexibleImage poster"
+                                                                        src="https://placehold.co/223x330/e685c1/643a54?text=Movie+6+(223x330)"
+                                                                        alt="Movie Poster">
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        Lorem ipsum
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <!-- #endregion now playing -->
+
+                                            <!-- #region club -->
+                                            <tr class="sectionMargin">
+                                                <td>
+                                                    <table>
+                                                        <tr class="titlePoster">
+                                                            <td>
+                                                                <img class="flexibleImage"
+                                                                    src="https://placehold.co/600x100/yellow/black?text=Join+The+Club+(600x100)"
+                                                                    alt="Movie Poster">
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="sectionSmallMargin">
+                                                <td>
+
+                                                    <table class="horizontalPoster">
+                                                        <tr>
+                                                            <td>
+                                                                <table class="flexibleContainer poster" align="left"
+                                                                    border="0" cellpadding="0" cellspacing="0"
+                                                                    width="420">
+                                                                    <tr>
+                                                                        <td class="poster">
+                                                                            <a href="#">
+                                                                                <img class="flexibleImage"
+                                                                                    src="https://placehold.co/1200x600/d6d6d6/black?text=The+Club+1(1200x600)"
+                                                                                    alt="Poster 1">
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                <table class="flexibleContainer description"
+                                                                    align="Right" border="0" cellpadding="0"
+                                                                    cellspacing="0" width="180">
+                                                                    <tr>
+                                                                        <td class="description">
+                                                                            <p>Lorem ipsum dolor sit amet consectetur
+                                                                                adipisicing elit. Modi, dolores? Velit
+                                                                                voluptates vero cumque quia?</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr class="sectionSmallMargin">
+                                                <td>
+
+                                                    <table class="horizontalPoster">
+                                                        <tr>
+                                                            <td>
+                                                                <table class="flexibleContainer poster" align="right"
+                                                                    border="0" cellpadding="0" cellspacing="0"
+                                                                    width="420">
+                                                                    <tr>
+                                                                        <td class="poster">
+                                                                            <a href="#">
+                                                                                <img class="flexibleImage"
+                                                                                    src="https://placehold.co/1200x600/d6d6d6/black?text=The+Club+2(1200x600)"
+                                                                                    alt="Poster 2">
+                                                                            </a>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                <table class="flexibleContainer description"
+                                                                    align="Left" border="0" cellpadding="0"
+                                                                    cellspacing="0" width="180">
+                                                                    <tr>
+                                                                        <td class="description">
+                                                                            <p>Lorem ipsum dolor sit amet consectetur
+                                                                                adipisicing elit. Modi, dolores? Velit
+                                                                                voluptates vero cumque quia?</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
+                                                </td>
+                                            </tr>
+                                            <tr class="sectionSmallMargin">
+                                                <td>
+
+                                                    <table class="horizontalPoster">
+                                                        <tr>
+                                                            <td>
+                                                                <table class="flexibleContainer poster" align="left"
+                                                                    border="0" cellpadding="0" cellspacing="0"
+                                                                    width="420">
+                                                                    <tr>
+                                                                        <td class="poster">
+                                                                            <a href="#">
+                                                                                <img class="flexibleImage"
+                                                                                    src="https://placehold.co/1200x600/d6d6d6/black?text=The+Club+3(1200x600)"
+                                                                                    alt="Poster 3">
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                                <table class="flexibleContainer description"
+                                                                    align="Right" border="0" cellpadding="0"
+                                                                    cellspacing="0" width="180">
+                                                                    <tr>
+                                                                        <td class="description">
+                                                                            <p>Lorem ipsum dolor sit amet consectetur
+                                                                                adipisicing elit. Modi, dolores? Velit
+                                                                                voluptates vero cumque quia?</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <!-- #region club END -->
+
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <!-- FOOTER ROW -->
+                                <tr class="sectionMargin">
+                                    <td valign="top" class="flexibleContainerCell">
+                                        <table class="flexibleContainer" border="0" cellpadding="0" cellspacing="0"
+                                            width="100%"
+                                            style="border-color: white; border-width: 1px;border-style: dashed;border-bottom: none;border-left: none;border-right: none; padding: 0 10px;">
+                                            <tr class="textSizeS">
+                                                <td>
+                                                    <table class="flexibleContainer footerTable" style="text-align: center; margin-bottom: 15px;">
+                                                        <tr class="sectionSmallMargin">
+                                                            <td>
+                                                                <a href="#">Privacy</a> |
+                                                                <a href="#">Unsbscribe</a> |
+                                                                <a href="#">Contact Us</a> |
+                                                                <a href="#">Link.ca</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sectionSmallMargin">
+                                                            <td><span>Lorem ipsum dolor, sit amet consectetur
+                                                                    adipisicing elit. Sit ab ipsum adipisci unde
+                                                                    recusandae mollitia.</span></td>
+                                                        </tr>
+                                                        <tr class="sectionSmallMargin">
+                                                            <td>
+                                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing
+                                                                    elit. Cum quaerat sed, doloremque ipsam molestiae
+                                                                    cumque explicabo totam quod deleniti sequi, magnam
+                                                                    nam ea quidem alias voluptatum suscipit nesciunt
+                                                                    praesentium! Totam dolorum, sequi quidem, animi ipsa
+                                                                    ea doloribus vero similique neque saepe quibusdam
+                                                                    impedit a delectus tempore! Vero magni recusandae
+                                                                    id? <a href="">link</a></p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sectionSmallMargin">
+                                                            <td>
+                                                                <a href="tel:+1123(456)7890">+1-123-(456)-7890</a> |
+                                                                <a href="mailto:mail@to.ca">mail@to.ca</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <!-- End of wrapper table -->
+
+</body>
+
+</html>
