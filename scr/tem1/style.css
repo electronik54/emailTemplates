@@ -1,26 +1,42 @@
 /* #region GENERAL STYLES */
 :root {
     --blue: rgb(8, 96, 211);
-    --textColor: rgb(27, 27, 27);
-    --textColorDark: rgb(231, 231, 231);
-    --mainBgColor: rgb(231, 231, 231);
-    --mainBgColorDark: rgb(27, 27, 27);
 
-    --darkPink: #d6d6d6;
+    --textColor: rgb(27, 27, 27);
+    --mailBgColor: rgb(241, 241, 241);
+    --mainBgColor: rgb(248, 248, 248);
+
+    --textColorDark: rgb(231, 231, 231);
+    --mailBgColorDark: rgb(27, 27, 27);
+    --mainBgColorDark: rgb(34, 34, 34);
+
+    --siblingSpacing: 10px;
+    --sectionSpacing: 40px;
 }
 
 /* #region AUTO SWITCH BETWWEEN DARK AND LIGHT MODE based on browser setting*/
 @media (prefers-color-scheme: dark) {
     #emailBody {
-        background-color: var(--mainBgColorDark);
+        background-color: var(--mailBgColorDark);
         color: var(--textColorDark);
     }
+
+    #bgTable {
+        background-color: var(--mainBgColorDark);
+    }
 }
+
 @media (prefers-color-scheme: light) {
     #emailBody {
+        background-color: var(--mailBgColor);
+        color: var(--textColor);
+    }
+
+    #bgTable {
         background-color: var(--mainBgColor);
-        color: var(--textColor);}
+    }
 }
+
 /* #endregion  AUTO SWITCH END*/
 
 .hidden {
@@ -74,7 +90,7 @@ h4 {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    margin-top: 10px;
+    margin-top: var(--siblingSpacing);
 }
 
 .twoCellGrid>.posterTableLinked {
@@ -86,9 +102,10 @@ h4 {
 }
 
 .sectionMargin {
-    padding-top: 40px;
+    padding-top: var(--sectionSpacing);
     display: block;
 }
+
 .sectionSmallMargin {
     padding-top: 10px;
     display: block;
@@ -109,10 +126,14 @@ h4 {
         width: 100%;
         margin: 0;
     }
+
+    .twoCellGrid>.posterTableLinked:not(:first-child) {
+        margin-top: var(--siblingSpacing);
+    }
 }
 
 
-.footerTable tr{
+.footerTable tr {
     display: grid;
 }
 
@@ -124,7 +145,7 @@ h4 {
 }
 
 #header>td {
-    padding: 0 10px;
+    padding: 0 var(--siblingSpacing);
 }
 
 #header>td:first-child {
@@ -154,7 +175,7 @@ h4 {
     padding-bottom: 20px;
 }
 
-.posterTable .mp1Description p {
+.posterTable .description p {
     text-align: justify;
     text-align-last: center;
 }
@@ -163,7 +184,7 @@ h4 {
     font-weight: 900;
 }
 
-.posterTable .mp1LinkButtons td {
+.posterTable .linkButtons td {
     display: flex;
     justify-content: center;
 }
@@ -173,7 +194,8 @@ h4 {
 /* #region posterTableLinked*/
 .posterTableLinked {
     margin: 0;
-    color: inherit; /* so the text color switches with dark/light mode */
+    color: inherit;
+    /* so the text color switches with dark/light mode */
 }
 
 .posterTableLinked .poster {
@@ -183,21 +205,16 @@ h4 {
 /* #endregion posterTableLinked END*/
 
 /* #region titlePoster */
-.horizontalPoster .description{
+.horizontalPoster .description {
     text-align: justify;
     text-align-last: center;
-    padding: 0 10px;
+    padding: 0 var(--siblingSpacing);
 }
+
 @media only screen and (max-width: 480px) {
     /* .horizontalPoster td{
         display: block;
     } */
 }
+
 /* #region titlePoster END*/
-
-/* #region STRUCTURE STYLE > REMOVE THIS*/
-#emailBody>tr>td>table {
-    background-color: aqua;
-}
-
-/* #endregion STRUCTURE STYLE END > REMOVE THIS */
