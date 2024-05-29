@@ -1,0 +1,10 @@
+make a responsive semantic HTML email template with the following
+
+- the header should have a title logo on the top center. the logo should be 600x400px wide image that can be found at https://dummyimage.com/600x400/000/fff.jpg&text=logo. This logo should resize to fit the browser width
+
+- the body should have 1 responsive grid arranged in 2x2 cell pattern when viewed above 500px width and 1x4 cell pattern when viewed under 500px width. each cell should have #68cdd7 hex background. these cells should be a link to redirect to a different page when clicked. 
+- each cell should have 2 cells aligned horizontally when viewed above 500px width and vertically aligned when viewed under 500px width. the first inner cell should have an image with this link https://dummyimage.com/200x200/234136/fff.jpg&text=content. and the second cell should have some 100 - 150 words discription
+
+- the template should be able to switch between dark and light mode based on browser dark and light mode.
+
+- in the footer add link to unsubscribe to the email, some copyright note and 4 social media icon links. the social media icons should be arranged in a responsive grid of 4 x 1 cells. the content of these cells should be senter aligned. when viewed above 500px width and 2 x 2 viewed under 500px width. the social media icons should be 100x100px with #c9d768 hex background. you can get the image for each social media icon from https://dummyimage.com/50x50/000/fff.jpg&text=social. the 000 in this link is the hex value for color. make sure that each social media icon has a unique color. 

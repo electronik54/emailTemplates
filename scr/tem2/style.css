@@ -1,0 +1,741 @@
+/* #region CLIENT RESET*/
+/* Client-specific Styles */
+#outlook a {
+    padding: 0;
+}
+
+/* Force Outlook to provide a "view in browser" menu link. */
+body {
+    width: 100% !important;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100% !important;
+    font-family: sans-serif;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+#bgTable {
+    line-height: 100% !important;
+}
+
+#bgTable,
+#bgTableBodyCell {
+    height: 100% !important;
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+}
+
+/* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+.ExternalClass {
+    width: 100%;
+}
+
+/* Force Hotmail to display emails at full width */
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div {
+    line-height: 100%;
+}
+
+
+/* End reset */
+/* Some sensible defaults for images
+		1. "-ms-interpolation-mode: bicubic" works to help ie properly resize images in IE. (if you are resizing them using the width and height attributes)
+		2. "border:none" removes border when linking images.
+		3. Updated the common Gmail/Hotmail image display fix: Gmail and Hotmail unwantedly adds in an extra space below images when using non IE browsers. You may not always want all of your images to be block elements. Apply the "image_fix" class to any image you need to fix.
+		Bring inline: Yes.
+		*/
+img,
+a img {
+    border: none;
+    outline: none;
+    text-decoration: none;
+    -ms-interpolation-mode: bicubic;
+}
+
+.image_fix {
+    display: block;
+}
+
+/** Yahoo paragraph fix: removes the proper spacing or the paragraph (p) tag. To correct we set the top/bottom margin to 1em in the head of the document. Simple fix with little effect on other styling. NOTE: It is also common to use two breaks instead of the paragraph tag but I think this way is cleaner and more semantic. NOTE: This example recommends 1em. More info on setting web defaults: http://www.w3.org/TR/CSS21/sample.html or http://meiert.com/en/blog/20070922/user-agent-style-sheets/
+		Bring inline: Yes.
+		**/
+p {
+    margin: 1em 0;
+}
+
+/** Hotmail header color reset: Hotmail replaces your header color styles with a green color on H2, H3, H4, H5, and H6 tags. In this example, the color is reset to black for a non-linked header, blue for a linked header, red for an active header (limited support), and purple for a visited header (limited support).  Replace with your choice of color. The !important is really what is overriding Hotmail's styling. Hotmail also sets the H1 and H2 tags to the same size.
+		Bring inline: Yes.
+		**/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    color: blue !important;
+}
+
+h1 a:active,
+h2 a:active,
+h3 a:active,
+h4 a:active,
+h5 a:active,
+h6 a:active {
+    color: red !important;
+    /* Preferably not the same color as the normal header link color.  There is limited support for psuedo classes in email clients, this was added just for good measure. */
+}
+
+h1 a:visited,
+h2 a:visited,
+h3 a:visited,
+h4 a:visited,
+h5 a:visited,
+h6 a:visited {
+    color: purple !important;
+    /* Preferably not the same color as the normal header link color. There is limited support for psuedo classes in email clients, this was added just for good measure. */
+}
+
+/** Outlook 07, 10 Padding issue: These "newer" versions of Outlook add some padding around table cells potentially throwing off your perfectly pixeled table.  The issue can cause added space and also throw off borders completely.  Use this fix in your header or inline to safely fix your table woes.
+		More info: http://www.ianhoar.com/2008/04/29/outlook-2007-borders-and-1px-padding-on-table-cells/
+		http://www.campaignmonitor.com/blog/post/3392/1px-borders-padding-on-table-cells-in-outlook-07/
+		H/T @edmelly
+		Bring inline: No.
+		**/
+table tr,
+table td {
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+/* Removes the gap left by <img> tag in <td> tag */
+td>img {
+    vertical-align: bottom;
+}
+
+/** Remove spacing around Outlook 07, 10 tables
+		More info : http://www.campaignmonitor.com/blog/post/3694/removing-spacing-from-around-tables-in-outlook-2007-and-2010/
+		Bring inline: Yes
+		**/
+table {
+    table-layout: fixed;
+    /*For faster rendering due to fixed width*/
+    border-collapse: collapse;
+    mso-table-lspace: 0pt;
+    mso-table-rspace: 0pt;
+    padding: 0;
+    border: none;
+}
+
+/* Styling your links has become much simpler with the new Yahoo.  In fact, it falls in line with the main credo of styling in email, bring your styles inline.  Your link colors will be uniform across clients when brought inline.
+		Bring inline: Yes. */
+a {
+    color: rgb(255, 102, 0);
+}
+
+/*////// CLIENT-SPECIFIC STYLES //////*/
+.ReadMsgBody {
+    width: 100%;
+}
+
+.ExternalClass {
+    width: 100%;
+}
+
+/* Force Hotmail/Outlook.com to display emails at full width. */
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div {
+    line-height: 100%;
+}
+
+/* Force Hotmail/Outlook.com to display line heights normally. */
+table,
+td {
+    mso-table-lspace: 0pt;
+    mso-table-rspace: 0pt;
+}
+
+/* Remove spacing between tables in Outlook 2007 and up. */
+#outlook a {
+    padding: 0;
+}
+
+/* Force Outlook 2007 and up to provide a "view in browser" message. */
+img {
+    -ms-interpolation-mode: bicubic;
+}
+
+/* Force IE to smoothly render resized images. */
+body,
+table,
+td,
+p,
+a,
+li,
+blockquote {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Prevent Windows- and Webkit-based mobile platforms from changing declared text sizes. */
+/*////// CLIENT-SPECIFIC STYLES END //////*/
+
+
+
+
+
+
+/* Or to go the gold star route...
+		a:link { color: orange; }
+		a:visited { color: blue; }
+		a:hover { color: green; }
+		*/
+/***************************************************
+		****************************************************
+		MOBILE TARGETING
+		Use @media queries with care.  You should not bring these styles inline -- so it's recommended to apply them AFTER you bring the other stlying inline.
+		Note: test carefully with Yahoo.
+		Note 2: Don't bring anything below this line inline.
+		****************************************************
+		***************************************************/
+/* NOTE: To properly use @media queries and play nice with yahoo mail, use attribute selectors in place of class, id declarations.
+		table[class=classname]
+		Read more: http://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/
+		*/
+
+
+/*////// FRAMEWORK STYLES //////*/
+.flexibleImage {
+    height: auto;
+    width: 100%;
+}
+
+
+/*////// MOBILE STYLES //////*/
+@media only screen and (max-width: 480px) {
+
+
+
+    /*////// CLIENT-SPECIFIC STYLES //////*/
+    body {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
+    /* Force iOS Mail to render the email at full width. */
+    /*////// FRAMEWORK STYLES //////*/
+    /*
+				CSS selectors are written in attribute
+				selector format to prevent Yahoo Mail
+				from rendering media query styles on
+				desktop.
+			*/
+    table[id="emailBody"],
+    table.flexibleContainer {
+        width: 100% !important;
+    }
+
+    /*
+				The following style rule makes any
+				image classed with 'flexibleImage'
+				fluid when the query activates.
+				Make sure you add an inline max-width
+				to those images to prevent them
+				from blowing out. 
+			*/
+    img[class="flexibleImage"] {
+        height: auto !important;
+        width: 100% !important;
+    }
+
+    /*
+				Make buttons in the email span the
+				full width of their container, allowing
+				for left- or right-handed ease of use.
+			*/
+    table[class="emailButton"] {
+        width: 100% !important;
+    }
+
+    td[class="buttonContent"] {
+        padding: 0 !important;
+    }
+
+    td[class="buttonContent"] a {
+        padding: 15px !important;
+    }
+
+    td[class="textContentLast"],
+    td[class="imageContentLast"] {
+        padding-top: 20px !important;
+    }
+
+    /*////// GENERAL STYLES //////*/
+    td[id="bodyCell"] {
+        padding-top: 10px !important;
+        padding-Right: 10px !important;
+        padding-Left: 10px !important;
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+
+    /* A nice and clean way to target phone numbers you want clickable and avoid a mobile phone from linking other numbers that look like, but are not phone numbers.  Use these two blocks of code to "unstyle" any numbers that may be linked.  The second block gives you a class to apply with a span tag to the numbers you would like linked and styled.
+			Inspired by Campaign Monitor's article on using phone numbers in email: http://www.campaignmonitor.com/blog/post/3571/using-phone-numbers-in-html-email/.
+			Step 1 (Step 2: line 224)
+			*/
+    a[href^="tel"],
+    a[href^="sms"] {
+        text-decoration: none;
+        color: black;
+        /* or whatever your want */
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .mobile_link a[href^="tel"],
+    .mobile_link a[href^="sms"] {
+        text-decoration: default;
+        color: orange !important;
+        /* or whatever your want */
+        pointer-events: auto;
+        cursor: default;
+    }
+}
+
+/* More Specific Targeting */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+    /* You guessed it, ipad (tablets, smaller screens, etc) */
+    /* Step 1a: Repeating for the iPad */
+    a[href^="tel"],
+    a[href^="sms"] {
+        text-decoration: none;
+        color: blue;
+        /* or whatever your want */
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .mobile_link a[href^="tel"],
+    .mobile_link a[href^="sms"] {
+        text-decoration: default;
+        color: orange !important;
+        pointer-events: auto;
+        cursor: default;
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    /* Put your iPhone 4g styles in here */
+}
+
+/* Following Android targeting from:
+		http://developer.android.com/guide/webapps/targeting.html
+		http://pugetworks.com/2011/04/css-media-queries-for-targeting-different-mobile-devices/  */
+@media only screen and (-webkit-device-pixel-ratio:.75) {
+    /* Put CSS for low density (ldpi) Android layouts in here */
+}
+
+@media only screen and (-webkit-device-pixel-ratio:1) {
+    /* Put CSS for medium density (mdpi) Android layouts in here */
+}
+
+@media only screen and (-webkit-device-pixel-ratio:1.5) {
+    /* Put CSS for high density (hdpi) Android layouts in here */
+}
+
+/* end Android targeting */
+
+/* #endregion CLIENT RESET*/
+
+/* #region GENERAL*/
+:root {
+    --blue: rgb(8, 96, 211);
+
+    --textColor: #1b1b1b;
+    --mailBgColor: #f1f1f1;
+    --mainBgColor: #f8f8f8;
+
+    --textColorDark: rgb(231, 231, 231);
+    --mailBgColorDark: rgb(27, 27, 27);
+    --mainBgColorDark: #222222;
+
+    --siblingSpacing: 10px;
+    --sectionSpacing: 40px;
+
+    --linkColor: rgb(255, 145, 0);
+
+    --randomColor: #cfcfcf;
+}
+
+#emailBody {
+    -webkit-user-select: none !important;
+    /* Safari */
+    -ms-user-select: none !important;
+    /* IE 10 and IE 11 */
+    user-select: none !important;
+    /* Standard syntax */
+}
+
+#bgTable {
+    background-repeat: repeat;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.textSizeL,
+h1 {
+    font-size: 50px;
+    line-height: normal;
+}
+
+.textSize2,
+h2 {
+    font-size: 30px;
+    line-height: normal;
+}
+
+.textSize3,
+h3 {
+    font-size: 25px;
+    line-height: normal;
+}
+
+.textSizeNormal {
+    font-size: 14px;
+    line-height: normal;
+}
+
+.textSizeS,
+h4 {
+    font-size: 12px;
+}
+
+#emailBody {
+    border-collapse: collapse;
+}
+
+/* #endregion GENERAL END*/
+
+/* #region alternatePara*/
+.alternatePara {
+    display: flex;
+    flex-flow: column;
+}
+
+.alternatePara>* {
+    width: 500px;
+    margin: 0;
+}
+
+.alternatePara>*:nth-child(even) {
+    margin-left: auto;
+    /* to alternating item on right */
+}
+
+/* #endregion alternatePara END*/
+
+/* #region HEADER*/
+table.mailHeader td {
+    display: flex;
+    justify-content: center;
+}
+
+table.mailHeader h1 {
+    padding: 10px;
+    margin: var(--siblingSpacing) 0;
+    display: inline-block;
+    width: fit-content;
+    font-weight: 900;
+}
+
+/* #endregion HEADER END*/
+
+/* #region headSocial */
+.mailHeaderSocial tr {
+    display: flex;
+    justify-content: space-around;
+    margin-top: var(--siblingSpacing);
+}
+
+.mailHeaderSocial img {
+    max-width: 50px;
+}
+
+/* #endregion headSocial END*/
+
+/* #region mailFeaturedNews*/
+.mailFeaturedNews {
+    margin-top: var(--sectionSpacing);
+}
+
+.linkedFeaturedNews {
+    color: inherit;
+    text-decoration: none;
+}
+
+.linkedFeaturedNews h3,
+.linkedFeaturedNews h2 {
+    margin: 0 var(--siblingSpacing);
+    padding: 0 5px;
+}
+
+.linkedFeaturedNews h2 {
+    margin-top: var(--siblingSpacing);
+}
+
+.linkedFeaturedNews h3 {
+    margin-top: var(--siblingSpacing);
+}
+
+.linkedFeaturedNews p {
+    margin: var(--siblingSpacing);
+    text-align: justify;
+    text-align-last: center;
+}
+
+/* #endregion mailFeaturedNews END*/
+
+/* #region NEWS ARTICLES*/
+.mailNews {
+    margin-top: var(--sectionSpacing);
+}
+
+.mailNews>tbody>tr>td {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    /*so that its pinned to top and vertically center*/
+}
+
+/*leave space on top of each row except the first*/
+.mailNews .linkedNews:not(:first-child),
+.mailNews .linkedNews:not(:nth-child(2)) {
+    margin-top: var(--siblingSpacing);
+}
+
+.mailNews .linkedNews {
+    max-width: 280px;
+    display: inline-flex;
+    text-decoration: none;
+    color: inherit;
+}
+
+.mailNews .linkedNews .newsPic {
+    /* max-height: 400px; */
+}
+
+.linkedNews .newsText p {
+    text-align: justify;
+    text-align-last: center;
+}
+
+/* #endregion NEWS ARTICLES END*/
+
+/* #region OTHER NEWS*/
+.mailOtherNews {
+    margin-top: var(--sectionSpacing);
+}
+
+.mailOtherNews>tbody>tr>td {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    /*so that its pinned to top and vertically center*/
+}
+
+/*leave space on top of each row except the first*/
+.mailOtherNews .linkedNews:not(:first-child),
+.mailOtherNews .linkedNews:not(:nth-child(2)) {
+    margin-top: var(--siblingSpacing);
+}
+
+.mailOtherNews .linkedNews {
+    max-width: 140px;
+    min-width: 140px;
+    display: inline-flex;
+    text-decoration: none;
+    color: inherit;
+}
+
+.mailOtherNews .linkedNews .newsPic {
+    max-height: 300px;
+}
+
+.linkedNews .newsText span {
+    display: block;
+    text-align: center;
+}
+
+/* #endregion OTHER NEWS END*/
+
+/* #region mailFooter*/
+.mailFooter {
+    border-top: 1px dotted;
+    border-color: inherit;
+    /* font color will be inherited to respond to dark/light mode */
+    margin-top: var(--sectionSpacing);
+}
+
+.mailFooter>tbody>tr>td {
+    display: flex;
+    justify-content: space-arounds;
+}
+
+.mailFooter .links,
+.mailFooter .contact,
+.mailFooter .legal {
+    text-align: center;
+}
+
+.mailFooter .links,
+.mailFooter .contact {
+    min-width: 100px;
+    max-width: 100px;
+    width: 100px;
+}
+
+.mailFooter .legal {
+    max-width: 400px;
+}
+
+.mailFooter>tbody>tr>td>table {
+    margin: var(--siblingSpacing);
+}
+
+
+.mailFooter .links>tbody>tr>td>a ,
+.mailFooter .contact>tbody>tr>td>a {
+    display: block;
+    padding-top: var(--siblingSpacing);
+}
+
+/* #endregion mailFooter END*/
+
+/* #region AUTO SWITCH BETWWEEN DARK AND LIGHT MODE based on browser setting*/
+@media (prefers-color-scheme: dark) {
+    #emailBody {
+        background-color: var(--mailBgColorDark);
+        color: var(--textColorDark);
+    }
+
+    #bgTable {
+        background-image: url("https://placehold.co/100x100/202020/3f3f3f?text=DARK+MODE");
+    }
+
+    .invertedTxtColor {
+        color: var(--textColor);
+        background-color: var(--mailBgColor);
+    }
+
+    .mailHeaderSocial img {
+        filter: invert(100%);
+    }
+
+}
+
+@media (prefers-color-scheme: light) {
+    #emailBody {
+        background-color: var(--mailBgColor);
+        color: var(--textColor);
+    }
+
+    #bgTable {
+        background-image: url("https://placehold.co/100x100/f8f8f8/cfcfcf?text=LIGHT+MODE");
+    }
+
+    .invertedTxtColor {
+        color: var(--textColorDark);
+        background-color: var(--mailBgColorDark);
+    }
+
+}
+
+/* #endregion  AUTO SWITCH END*/
+
+/* #region RESPONSIVE*/
+@media only screen and (max-width: 480px) {
+    table.mailHeader h1 {
+        padding: 5px;
+        text-align: center;
+        display: block;
+    }
+
+    .alternatePara>* {
+        display: block;
+        width: auto;
+        margin: var(--siblingSpacing) !important;
+    }
+
+    .mailFooter>tbody>tr>td {
+        flex-flow: column;
+    }
+
+    /*leave space on top of each row except the first*/
+    .mailNews .linkedNews:not(:first-child) {
+        margin-top: var(--siblingSpacing);
+    }
+
+    .mailNews .linkedNews {
+        max-width: 100%;
+    }
+
+    .linkedNews .newsText p {
+        margin: 0 var(--siblingSpacing);
+    }
+
+
+    .mailFooter .links,
+    .mailFooter .contact,
+    .mailFooter .legal {
+        min-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .mailFooter .links>tbody>tr>td {
+        display: flex;
+        justify-content: space-around;
+    }
+    .mailFooter .contact>tbody>tr>td {
+        display: flex;
+        justify-content: space-around;
+    }
+    .mailFooter .links>tbody>tr>td>a ,
+    .mailFooter .contact>tbody>tr>td>a {
+        display: block;
+        padding: 0;
+    }
+}
+
+/* #endregion RESPONSIVE*/

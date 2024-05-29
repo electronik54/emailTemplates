@@ -1,0 +1,25 @@
+HELP
+https://mailtrap.io/blog/email-css/#External-CSS
+
+CSS 
+https://www.campaignmonitor.com/css/selectors/descendant/
+
+HTML TAGS TO USE
+https://helpdesk.bitrix24.com/open/14099114/
+
+
+CSS INLINER
+https://htmlemail.io/inline/
+https://templates.mailchimp.com/resources/inline-css/
+https://www.campaignmonitor.com/resources/tools/css-inliner/
+https://putsmail.com/inliner
+https://pinetools.com/css-inliner
+https://automattic.github.io/juice/
+
+
+
+CHECK
+https://www.htmlemailcheck.com/check/
+https://mailtrap.io/html-email-checker/
+https://www.caniemail.com/
+https://vmail.leopard.in.ua/
